@@ -59,7 +59,7 @@
                 log(`Found CNAME record = ${host.Answer[0].data}`);
                 findRepo(host.Answer[0].data, parsed.domain, path[0]);
             } else {
-                ///////TODO
+                log(`Could not find CNAME record. Maybe try https://github.com/search?q=${parsed.domain}+path%3ACNAME&type=Code&ref=advsearch&l=&l=`);
             }
         } else if (!parser.hostname.startsWith("www") && www.Answer) {
             log(`Searching for CNAME record @ ${"www."+parsed.domain}`)
@@ -67,7 +67,7 @@
                 log(`Found CNAME record = ${www.Answer[0].data}`);
                 findRepo(www.Answer[0].data, parsed.domain, path[0]);
             } else {
-                ///////TODO
+                log(`Could not find CNAME record. Maybe try https://github.com/search?q=${parsed.domain}+path%3ACNAME&type=Code&ref=advsearch&l=&l=`);
             }
         } else {
             log(`Failed to find CNAME record pointing to GitHub`, true);
